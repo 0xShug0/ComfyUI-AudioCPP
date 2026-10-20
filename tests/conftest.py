@@ -24,6 +24,12 @@ if COMFYUI:
     import comfy.options
 
     comfy.options.enable_args_parsing(False)
+    import comfy.cli_args
+    import torch
+
+    # The nodes check ComfyUI's interrupt flag while they wait, which imports comfy.model_management; without a GPU it needs
+    # --cpu, as ComfyUI itself would be started.
+    comfy.cli_args.args.cpu = not torch.cuda.is_available()
 
 
 def make_wav(seconds=0.5, rate=24000, channels=1):
