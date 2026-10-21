@@ -1,0 +1,20 @@
+[project]
+name = "comfyui-audiocpp"
+description = "ComfyUI nodes for audio.cpp: text to speech from an audiocpp_server running on this computer."
+version = "0.1.0"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/0xShug0/ComfyUI-AudioCPP"
+
+[tool.ruff]
+line-length = 160
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
